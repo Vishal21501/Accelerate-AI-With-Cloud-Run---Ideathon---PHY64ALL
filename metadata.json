@@ -1,0 +1,6 @@
+{
+  "name": "PHY64ALL",
+  "description": "Multi-Sensory Physics Laboratory & AI Step-by-Step Problem Solver for Explorer to Master's level students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

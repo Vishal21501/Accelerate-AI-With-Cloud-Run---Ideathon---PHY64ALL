@@ -1,0 +1,231 @@
+{
+  "entities": {
+    "UserProfile": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The unique Firebase Auth UID of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address, if provided."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name."
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User profile photo URL if authenticated via Google."
+        },
+        "isAnonymous": {
+          "type": "boolean",
+          "description": "Whether the user is currently in guest mode."
+        },
+        "educationLevel": {
+          "type": "string",
+          "enum": ["middle_school", "high_school", "undergraduate", "masters"],
+          "description": "Active physics curriculum education level preference."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of profile creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of last profile update."
+        }
+      },
+      "required": ["uid", "isAnonymous", "educationLevel"]
+    },
+    "SavedExperiment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique experiment configuration ID."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The owner's Firebase Auth UID."
+        },
+        "title": {
+          "type": "string",
+          "description": "User-assigned title for this simulation experiment."
+        },
+        "simType": {
+          "type": "string",
+          "description": "Identifier of the physics simulation (e.g., projectile, electric_field, quantum_well)."
+        },
+        "parameters": {
+          "type": "object",
+          "description": "JSON snapshot of simulation slider parameters and state."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional scientific notes recorded by the user."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Update timestamp."
+        }
+      },
+      "required": ["id", "userId", "title", "simType", "parameters"]
+    },
+    "SolvedProblemRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique record identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The owner's Firebase Auth UID."
+        },
+        "problem": {
+          "type": "string",
+          "description": "The physics problem statement."
+        },
+        "topic": {
+          "type": "string",
+          "description": "Physics domain topic."
+        },
+        "level": {
+          "type": "string",
+          "description": "Curriculum education level."
+        },
+        "summary": {
+          "type": "string",
+          "description": "Executive physical derivation summary."
+        },
+        "finalAnswer": {
+          "type": "string",
+          "description": "Derived numerical or algebraic answer."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when problem was solved."
+        }
+      },
+      "required": ["id", "userId", "problem", "summary"]
+    },
+    "QuizAttemptRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique record identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The owner's Firebase Auth UID."
+        },
+        "level": {
+          "type": "string",
+          "description": "Curriculum education level."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Physics domain."
+        },
+        "score": {
+          "type": "number",
+          "description": "Final score earned in the quiz."
+        },
+        "totalQuestions": {
+          "type": "number",
+          "description": "Total number of questions answered."
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when quiz was completed."
+        }
+      },
+      "required": ["id", "userId", "score", "totalQuestions"]
+    },
+    "SavedChat": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique chat session identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The owner's Firebase Auth UID."
+        },
+        "title": {
+          "type": "string",
+          "description": "Topic or title of the saved physics conversation."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Physics domain topic explored."
+        },
+        "level": {
+          "type": "string",
+          "description": "Curriculum education level."
+        },
+        "messages": {
+          "type": "array",
+          "description": "Conversation message transcript."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        }
+      },
+      "required": ["id", "userId", "title", "messages"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "User profile storing personal education level, display identity, and user preferences."
+    },
+    "/users/{userId}/savedExperiments/{experimentId}": {
+      "schema": {
+        "$ref": "#/entities/SavedExperiment"
+      },
+      "description": "Private laboratory setups and saved simulation parameters created by this user."
+    },
+    "/users/{userId}/savedChats/{chatId}": {
+      "schema": {
+        "$ref": "#/entities/SavedChat"
+      },
+      "description": "User's saved AI physics tutor conversations and concept inquiries."
+    },
+    "/users/{userId}/solvedProblems/{problemId}": {
+      "schema": {
+        "$ref": "#/entities/SolvedProblemRecord"
+      },
+      "description": "Private notebook of step-by-step solved physics problems saved by this user."
+    },
+    "/users/{userId}/quizAttempts/{attemptId}": {
+      "schema": {
+        "$ref": "#/entities/QuizAttemptRecord"
+      },
+      "description": "Private quiz history and score records achieved by this user."
+    }
+  }
+}

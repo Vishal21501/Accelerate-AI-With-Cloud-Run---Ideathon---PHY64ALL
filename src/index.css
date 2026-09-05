@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* Ensure stable viewport width and prevent scrollbar layout thrashing / vibration */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Cool Physics Laboratory Background */
+.physics-cool-bg {
+  background-color: #070b14;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.14), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.08), transparent 50%),
+    radial-gradient(circle at 0% 50%, rgba(14, 165, 233, 0.05), transparent 40%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+  background-attachment: fixed;
+}
+
+/* Light mode subtle technical grid */
+.physics-light-bg {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.05), transparent 70%),
+    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+}
+
+/* Dark Mode Overrides for Physics Lab */
+.dark-mode {
+  color-scheme: dark;
+}
+
+.dark-mode .bg-white {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  border-color: rgba(51, 65, 85, 0.7) !important;
+  color: #f8fafc;
+}
+
+.dark-mode .bg-slate-50,
+.dark-mode .bg-slate-50\/50,
+.dark-mode .bg-slate-50\/70 {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+  border-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+.dark-mode .bg-slate-100 {
+  background-color: rgba(30, 41, 59, 0.75) !important;
+  border-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+.dark-mode .border-slate-200,
+.dark-mode .border-slate-100 {
+  border-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+.dark-mode .border-slate-300 {
+  border-color: rgba(71, 85, 105, 0.8) !important;
+}
+
+.dark-mode .text-slate-900,
+.dark-mode .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+.dark-mode .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+.dark-mode .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark-mode .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.dark-mode .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* Floating HUDs and overlays in simulations */
+.dark-mode .bg-white\/90,
+.dark-mode .bg-white\/95 {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+  color: #f8fafc;
+}
+
+/* Canvas background containers in simulations */
+.dark-mode .bg-slate-50 {
+  background-color: #0b1120 !important;
+}
+
+/* Form controls & inputs */
+.dark-mode input[type="text"],
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #0b1120 !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+.dark-mode input[type="text"]:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+  border-color: #3b82f6 !important;
+  outline: none;
+}
+
+/* Badges */
+.dark-mode .bg-blue-50 {
+  background-color: rgba(30, 58, 138, 0.45) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #93c5fd !important;
+}
+
+.dark-mode .bg-purple-50 {
+  background-color: rgba(88, 28, 135, 0.45) !important;
+  border-color: rgba(168, 85, 247, 0.4) !important;
+  color: #d8b4fe !important;
+}
+
+.dark-mode .bg-emerald-50,
+.dark-mode .bg-emerald-100 {
+  background-color: rgba(6, 78, 59, 0.45) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #6ee7b7 !important;
+}
+
+.dark-mode .bg-amber-50,
+.dark-mode .bg-amber-100 {
+  background-color: rgba(120, 53, 15, 0.45) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #fde68a !important;
+}
+
+.dark-mode .bg-red-50,
+.dark-mode .bg-red-100 {
+  background-color: rgba(127, 29, 29, 0.45) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #fca5a5 !important;
+}
+
+/* Hover styles */
+.dark-mode .hover\:bg-slate-50:hover,
+.dark-mode .hover\:bg-slate-100:hover,
+.dark-mode .hover\:bg-slate-200:hover {
+  background-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+/* Ensure buttons with explicit color backgrounds keep white text */
+.dark-mode .bg-blue-600,
+.dark-mode .bg-blue-700,
+.dark-mode .bg-emerald-600,
+.dark-mode .bg-purple-600,
+.dark-mode .bg-amber-600,
+.dark-mode .bg-red-600 {
+  color: #ffffff !important;
+}
+
+/* KaTeX formula typography */
+.dark-mode .katex {
+  color: #f8fafc !important;
+}
