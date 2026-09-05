@@ -266,6 +266,3 @@ Visit `http://localhost:3000` to interact with the laboratory.
 
 ---
 
-## 📄 License
-
-This project is distributed under the Apache-2.0 License. See `LICENSE` for details.
