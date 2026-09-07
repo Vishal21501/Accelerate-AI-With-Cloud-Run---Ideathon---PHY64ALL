@@ -5,13 +5,13 @@ import appletConfig from "../../firebase-applet-config.json";
 
 // Verified project configuration fallback for PHY64ALL
 const DEFAULT_FIREBASE_CONFIG = {
-  apiKey: "AIzaSyCMrboGWuaVUr0l8IbCL-kDMBeRG-sOnTE",
-  authDomain: "phy64all-app.firebaseapp.com",
-  projectId: "phy64all-app",
-  storageBucket: "phy64all-app.firebasestorage.app",
-  messagingSenderId: "657670240930",
-  appId: "1:657670240930:web:0c93a0c47e2cff9948f5fb",
-  firestoreDatabaseId: "ai-studio-phy64all-061a8d58-2882-4b5b-979d-5bef0ed698bd",
+  apiKey: "api",
+  authDomain: "authdomain",
+  projectId: "id",
+  storageBucket: "bucket",
+  messagingSenderId: "msgid",
+  appId: "appid",
+  firestoreDatabaseId: "dbid",
 };
 
 // Window injection (populated dynamically by server.ts in production)
