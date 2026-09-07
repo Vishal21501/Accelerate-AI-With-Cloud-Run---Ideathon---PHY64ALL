@@ -29,37 +29,37 @@ function getFirebaseConfig() {
       process.env.FIREBASE_API_KEY ||
       process.env.VITE_FIREBASE_API_KEY ||
       appletConfig.apiKey ||
-      "AIzaSyCMrboGWuaVUr0l8IbCL-kDMBeRG-sOnTE",
+      "api",
     authDomain:
       process.env.FIREBASE_AUTH_DOMAIN ||
       process.env.VITE_FIREBASE_AUTH_DOMAIN ||
       appletConfig.authDomain ||
-      "phy64all-app.firebaseapp.com",
+      "authdom",
     projectId:
       process.env.FIREBASE_PROJECT_ID ||
       process.env.VITE_FIREBASE_PROJECT_ID ||
       appletConfig.projectId ||
-      "phy64all-app",
+      "id",
     storageBucket:
       process.env.FIREBASE_STORAGE_BUCKET ||
       process.env.VITE_FIREBASE_STORAGE_BUCKET ||
       appletConfig.storageBucket ||
-      "phy64all-app.firebasestorage.app",
+      "bucket",
     messagingSenderId:
       process.env.FIREBASE_MESSAGING_SENDER_ID ||
       process.env.VITE_FIREBASE_MESSAGING_SENDER_ID ||
       appletConfig.messagingSenderId ||
-      "657670240930",
+      "msgid",
     appId:
       process.env.FIREBASE_APP_ID ||
       process.env.VITE_FIREBASE_APP_ID ||
       appletConfig.appId ||
-      "1:657670240930:web:0c93a0c47e2cff9948f5fb",
+      "appid",
     firestoreDatabaseId:
       process.env.FIREBASE_FIRESTORE_DATABASE_ID ||
       process.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID ||
       appletConfig.firestoreDatabaseId ||
-      "ai-studio-phy64all-061a8d58-2882-4b5b-979d-5bef0ed698bd",
+      "dbid",
   };
 }
 
